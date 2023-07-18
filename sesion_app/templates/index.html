@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inicio de sesión y registro</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <div class="container-sm d-flex aling-content-center" style="width: 70%;" >
+            <form action='/nuevo', method="post">
+                <input type="hidden" name="formu" value="usuarios">
+                <div class="container-fluid">
+                    <legend>Bienvenido a registro!</legend>
+                </div>
+    
+                <div>
+                    <legend>Registro</legend>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" id="nombre" class="form-control" name="nombre" required>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input type="text" id="apellido" class="form-control" name="apellido" required>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="correo" class="form-label">Correo</label>
+                    <input type="text" id="correo" class="form-control" name="correo" required>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="contrasena" class="form-label">Contraseña</label>
+                    <input type="password" id="contrasena" class="form-control" name="contrasena" required>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="confcontrasena" class="form-label">Confirma contraseña</label>
+                    <input type="password" id="confcontrasena" class="form-control" name="confcontrasena" required>
+                </div>
+    
+                <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3">Enviar</button>
+                </div>
+            </form>
+        </div>
+    
+    <div class="container-sm d-flex aling-content-space-between" style="margin-left:50%; margin-top: -35%;">
+        <form action='/login', method="post">
+                <input type="hidden" name="formu" value="login">
+                <div>
+                    <legend>Iniciar sesion</legend>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="correo" class="form-label">Correo</label>
+                    <input type="text" id="correo" class="form-control" name="correo" required>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="contrasena" class="form-label">contraseña</label>
+                    <input type="password" id="contrasena" class="form-control" name="contrasena" required>
+                </div>
+    
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">Iniciar</button>
+            </div>
+            {% with messages_login = get_flashed_messages() %}     
+            {% if messages_login %}   
+                <ul>                            
+                {% for mssg in messages_login %}                
+                    <li>{{mssg}}</li>   
+                {% endfor %}    
+                </ul>                
+            {% endif %}
+            {% endwith %}
+        </form>
+    
+    </div>
+    </body>
+</html>
